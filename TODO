@@ -1,14 +1,7 @@
-LE/BE
-	Mind the byte-order when reading/writing the samples
-
-We assume int16_t samples now
+We assume u32le samples now
 	Generalize to everything else, using suffixes such as ".s16"
 	Note that te same also works for the lower bits of floats.
 
 channels
 	Report for each channel separately.
 	Assume channels to be interlaced.
-	
-examples
-	Have some example files and use the in the Makefile,
-	perhaps using aucat/sox to play them.
