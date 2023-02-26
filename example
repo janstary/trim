@@ -1,0 +1,12 @@
+#!/bin/sh
+
+sox -n -t raw -r 48000 -b 32 -e signed   -L example.s32le synth 1 gain -3
+sox -n -t raw -r 48000 -b 32 -e signed   -B example.s32be synth 1 gain -3
+sox -n -t raw -r 48000 -b 32 -e unsigned -L example.u32le synth 1 gain -3
+sox -n -t raw -r 48000 -b 32 -e unsigned -B example.u32be synth 1 gain -3
+
+for z in `jot 31` ; do
+	./trim $z < example.u32le > example$z.u32le
+	#play -t raw -r 48000 -e unsigned -b 32 example$z.u32le
+	./trim 0 < example$z.u32le > /dev/null
+done

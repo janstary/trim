@@ -1,0 +1,23 @@
+.Dd February 26, 2023
+.Dt TRIM 1
+.Os
+.Sh NAME
+.Nm trim
+.Nd zero the lower bits of signal samples
+.Sh SYNOPSIS
+.Nm
+.Op Ar bits
+.Sh DESCRIPTION
+.Nm
+reads signal samples from standard input
+(little-endian 32 bit signed integers)
+and writes them back to standard output,
+zeroing the given number of low-order
+.Ar bits .
+Note that the sample rate and the number of channels
+is irrelevant to this.
+.Pp
+The default number of zeroed bits is zero:
+.Nm
+copies the samples unaltered and reports
+how many lower bits are already zero.
